@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>For Ayang — Capybara Cute Theme</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg1: brown;
+      --bg2: violet;
+      --purple-1: #7b5cff;
+      --purple-2: #a78bfa;
+      --accent: #ffb6c1;
+      --card: #ffffff;
+      --muted: #6b6b7a;
+      --shadow: 0 10px 25px rgba(124, 58, 237, 0.12);
+    }
+    *{box-sizing:border-box}
+    body{
+      font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      margin:0;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: linear-gradient(135deg,var(--bg1),var(--bg2));
+      color:#222;
+      padding:32px;
+    }
+    .card{
+      width:min(720px,94vw);
+      background:linear-gradient(180deg, rgba(255,255,255,0.9), var(--card));
+      border-radius:20px;
+      box-shadow:var(--shadow);
+      padding:28px;
+      display:grid;
+      grid-template-columns:110px 1fr;
+      gap:18px;
+      align-items:center;
+      border:1px solid rgba(124,58,237,0.08);
+    }
+    .capy{
+      width:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    /* cute capybara SVG container */
+    .capy svg{width:96px;height:96px}
+    h1{
+      margin:0 0 8px 0;
+      font-size:18px;
+      letter-spacing:0.2px;
+      color:var(--purple-1);
+      display:flex;align-items:center;gap:8px;
+    }
+    .heart{font-size:18px; background: linear-gradient(90deg,var(--purple-1),var(--purple-2)); -webkit-background-clip:text; background-clip:text; color:transparent}
+    p{margin:0 0 10px 0; line-height:1.6; color:#2b2b35}
+    .muted{color:var(--muted); font-size:13px}
+    .message{
+      background: linear-gradient(180deg, rgba(167,139,250,0.08), rgba(167,139,250,0.03));
+      padding:18px; border-radius:12px; border:1px solid rgba(167,139,250,0.14);
+    }
+    .controls{display:flex;gap:8px;margin-top:12px}
+    .btn{padding:8px 12px;border-radius:10px;border:none;cursor:pointer;font-weight:600}
+    .btn.copy{background:linear-gradient(90deg,var(--purple-1),var(--purple-2)); color:white}
+    .btn.pale{background:transparent;border:1px solid rgba(124,58,237,0.12);color:var(--purple-1)}
+    footer{grid-column:1/-1;margin-top:8px;text-align:center;color:var(--muted);font-size:13px}
+    @media (max-width:560px){
+      .card{grid-template-columns:1fr;gap:12px;padding:18px}
+      .capy svg{width:84px;height:84px}
+    }
+  </style>
+</head>
+<body>
+  <div class="capy-wrap" style="position:relative; width:100%; display:flex; justify-content:center;">
+    <!-- Floating capybaras around the card -->
+    <img src="1.png" style="position:absolute; top:-40px; left:-40px; width:90px;" alt="capy">
+    <img src="2.png" style="position:absolute; top:-40px; right:-40px; width:90px;" alt="capy">
+    <img src="3.png" style="position:absolute; bottom:-40px; left:-40px; width:90px;" alt="capy">
+    <img src="4.png" style="position:absolute; bottom:-40px; right:-40px; width:90px;" alt="capy">
+
+    <main class="card" role="main">
+    <div class="capy" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+      <!-- Insert your brown capybara images -->
+      <img src="5.png" alt="Capybara" style="width:120px;height:auto;object-fit:contain;">
+      <img src="6.png" alt="Capybara" style="width:120px;height:auto;object-fit:contain;">
+      <img src="3.png" alt="Capybara" style="width:120px;height:auto;object-fit:contain;">
+    </div>
+
+    <div>
+      <h1>Hi ayang <span class="heart">❤</span></h1>
+      <div class="message" id="messageBox">
+        <p>It’s been so long since I wrote you a long sweet message, didn’t I? I’m sorry, ha I’ve been busy lately, but kahit gano’n, you’re always on my mind. I miss you, your voice, your hugs, and the way you make everything feel lighter kahit pagod ako.</p>
+
+        <p>Gusto ko lang sabihin na thank you for your patience and love. You’ve been my comfort, my peace, and my safe place. Kahit hindi ko lagi nasasabi, you’re one of the best things that ever happened to me, ayang.</p>
+
+        <p>
+
+        <p>And ayang, you always remind me of everything warm and comforting your scent, your laugh, the food we shared, the little moments that stayed with me. You bring back all the memories that feel like home, and I never get tired of remembering them because they all lead back to you.</p></p>
+
+        
+      </div>
+      
+    </div>
+
+    
+  </main>
+
+  <script>
+    // copy text
+    document.getElementById('copyBtn').addEventListener('click', async function(){
+      const text = document.getElementById('messageBox').innerText.trim();
+      try{
+        await navigator.clipboard.writeText(text);
+        this.textContent = 'Copied!';
+        setTimeout(()=> this.textContent = 'Copy Letter',1500);
+      }catch(e){
+        alert('Sorry, clipboard not available. You can select the text and copy manually.')
+      }
+    });
+
+    // download HTML file
+    document.getElementById('downloadBtn').addEventListener('click', function(){
+      const html = `<!doctype html>\n<html><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>For Ayang</title></head><body><pre style=\"white-space:pre-wrap;font-family:inherit;\">${escapeHtml(document.getElementById('messageBox').innerText.trim())}</pre></body></html>`;
+      const blob = new Blob([html], {type: 'text/html'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'For-Ayang.html'; document.body.appendChild(a); a.click(); a.remove();
+      URL.revokeObjectURL(url);
+    });
+
+    function escapeHtml(s){
+      return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')
+                .replace(/'/g,'&#039;').replace(/\n/g,'\n');
+    }
+  </script>
+</body>
+</html>
